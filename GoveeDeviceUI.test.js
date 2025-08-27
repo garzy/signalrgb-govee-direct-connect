@@ -64,7 +64,7 @@ export default class GoveeDeviceUI
                     this.device.createSubdevice(subDeviceId);
                     this.device.setSubdeviceName(subDeviceId, `${this.goveeDevice.getName()}`);
                     this.device.setSubdeviceImage(subDeviceId, '');
-                    this.device.setSubdeviceSize(subDeviceId, this.ledCount, 1);
+                    this.device.setSubdeviceSize(subDeviceId, this.ledCount, this.ledCount);
                     this.device.setSubdeviceLeds(subDeviceId, this.ledNames, this.ledPositions);
 
                     this.subDevices.push(subDeviceId);
@@ -75,7 +75,7 @@ export default class GoveeDeviceUI
                 this.device.addChannel(`Govee [${this.goveeDevice.id}]`, this.ledCount);
                 break;
             default:
-                this.device.setSize([this.controller.device.leds, 1]);
+                this.device.setSize([this.controller.device.leds, this.controller.device.leds]);
                 this.device.setControllableLeds(this.ledNames, this.ledPositions);
                 break;
         }
