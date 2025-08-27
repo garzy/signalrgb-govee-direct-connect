@@ -102,8 +102,10 @@ export default class GoveeDeviceUI
     
         for(let i = 0; i < count; i++)
         {
-            this.ledNames.push(`Led ${i + 1}`);
-            this.ledPositions.push([i, 0]);
+            for(let j = 0; j < count; j++) {
+                this.ledNames.push(`Led ${i + j + 1}`);
+                this.ledPositions.push([i, j]);
+            }
         }
     }
 
