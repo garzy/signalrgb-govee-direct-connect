@@ -15,7 +15,7 @@ export default class GoveeDeviceUI
         this.goveeDevice.setupUdpServer();
 
         // Setup lighting device
-        this.ledCount = controller.device.leds * controller.device.leds;
+        this.ledCount = controller.device.leds;
         this.ledNames = [];
         this.ledPositions = [];
 
@@ -99,11 +99,14 @@ export default class GoveeDeviceUI
     {
         this.ledNames = [];
         this.ledPositions = [];
-    
+        
+        let ledNumber = 1;
         for(let i = 0; i < count; i++)
         {
-            this.ledNames.push(`Led ${i + 1}`);
-            this.ledPositions.push([i, 0]);
+            for(let j = 0; j < count; j++) {
+                this.ledNames.push(`Led ${ledNumber++}`);
+                this.ledPositions.push([i, j]);
+            }
         }
     }
 
